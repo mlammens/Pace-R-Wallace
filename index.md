@@ -69,6 +69,7 @@ Times are approximate.
 
 ## Additional Resources
 
+* Data Carpentry - R Ecology Lessons [https://datacarpentry.org/R-ecology-lesson/index.html](https://datacarpentry.org/R-ecology-lesson/index.html)
 * DataOne best practices [https://www.dataone.org/best-practices](https://www.dataone.org/best-practices)
-
+* Getting started with NEON data [https://www.neonscience.org/get-started-neon-series](https://www.neonscience.org/get-started-neon-series)
 
