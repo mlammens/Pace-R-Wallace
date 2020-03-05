@@ -1,0 +1,54 @@
+---
+title: "Working with NEON data"
+author: "Matthew Aiello-Lammens"
+date: "3/5/2020"
+output: html_document
+---
+
+```{r, eval=FALSE}
+install.packages("devtools")
+install.packages("neonUtilities")
+install.packages("raster")
+devtools::install_github("NEONScience/NEON-geolocation/geoNEON")
+install.packages("BiocManager")
+BiocManager::install("rhdf5")
+```
+
+Load packages
+
+```{r}
+library(neonUtilities)
+library(geoNEON)
+library(raster)
+library(rhdf5)
+library(tidyverse)
+
+# Set global option to NOT convert all character variables to factors
+options(stringsAsFactors=F)
+```
+
+
+Stack data
+
+```{r}
+stackByTable("~/Dropbox/00_Sort/NEON_presence-cover-plant.zip")
+```
+
+Read data
+
+```{r}
+plant_data <- read.csv("~/Dropbox/00_Sort/NEON_presence-cover-plant/stackedFiles/div_1m2Data.csv")
+```
+
+
+
+```{r}
+plant_data %>%
+  filter(scientificName == "Frangula alnus Mill.")
+
+
+plant_data %>%
+  group_by(plotID) %>%
+  summarise(richness = length(unique(scientificName)))
+```
+
